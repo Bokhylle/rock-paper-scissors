@@ -25,36 +25,45 @@ function rockPaperScissorsSingleRound() {
     if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
             alert(victoryMessage);
+            console.log(victoryMessage);
             return "win"
         } else if (computerSelection == "rock") {
             alert(drawMessage);
+            console.log(drawMessage);
             return "draw"
         } else if (computerSelection == "paper") {
-            alert(lossMessage)
+            alert(lossMessage);
+            console.log(lossMessage);
             return "loss"
         }
 
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
             alert(victoryMessage);
+            console.log(victoryMessage);
             return "win"
         } else if (computerSelection == "paper") {
             alert(drawMessage);
+            console.log(drawMessage);
             return "draw"
         } else if (computerSelection == "scissors") {
-            alert(lossMessage)
+            alert(lossMessage);
+            console.log(lossMessage);
             return "loss"
         }
 
     } else if (playerSelection == "scissors") {
         if (computerSelection == "paper") {
             alert(victoryMessage);
+            console.log(victoryMessage);
             return "win"
         } else if (computerSelection == "scissors") {
             ;alert(drawMessage);
+            console.log(drawMessage);
             return "draw"
         } else if (computerSelection == "rock") {
-            alert(lossMessage)
+            alert(lossMessage);
+            console.log(lossMessage);
             return "loss"
         }
 
@@ -67,13 +76,12 @@ function rockPaperScissorsSingleRound() {
         // include draw eventuality
 }
 
-function game() {
+function game(n = 5) {
+let finalPlayerWin;
+let finalComputerWin;
 let playerWin = 0;
 let computerWin = 0;
-let winMessage = "Congratulations! You have won this 5 round battle " + playerWin + " to " + computerWin + "! sick"
-let lossMessage = "I regret to inform you that you have lost this 5 round battle " + computerWin + " to " + playerWin + ".. Better luck next time!"
-let drawMessage = "Wow, you and the computer drew at " + playerWin + "! What are the odds? -\\(o_O)/-"
-    for (i = 1; i <= 5; i++) {
+    for (i = 1; i <= n; i++) {
         let roundResult = rockPaperScissorsSingleRound();
         if (roundResult == "loss") {
             computerWin++
@@ -82,7 +90,12 @@ let drawMessage = "Wow, you and the computer drew at " + playerWin + "! What are
             playerWin++
             console.log(playerWin)
         }
+    finalPlayerWin = playerWin;    
+    finalComputerWin = computerWin;
     }
+    let winMessage = "Congratulations! You have won this " + n + " round battle " + finalPlayerWin + " to " + finalComputerWin + "! sick";
+    let lossMessage = "I regret to inform you that you have lost this " + n + " round battle " + finalComputerWin + " to " + finalPlayerWin + ".. Better luck next time!";
+    let drawMessage = "Wow, you and the computer drew at " + finalPlayerWin + "! What are the odds? -\\(o_O)/-";    
     if (playerWin > computerWin) {
         alert(winMessage)
         return "win"
