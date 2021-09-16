@@ -14,11 +14,11 @@ function playerSelection(selection) {
     return selection
 }
 function rockPaperScissorsSingleRound() {
-    let playerSelection =  prompt("Make your pick! (rock paper scissors)").toLowerCase();
-    let computerSelection = computerPlay().toLowerCase();
-    let victoryMessage = "You win! " + playerSelection + " beats " + computerSelection + "!";
-    let lossMessage = "You lose :( " + computerSelection + " beats " + playerSelection + "!";
-    let drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " are obviously the same!";
+    const playerSelection =  prompt("Make your pick! (rock paper scissors)").toLowerCase();
+    const computerSelection = computerPlay().toLowerCase();
+    const victoryMessage = "You win! " + playerSelection + " beats " + computerSelection + "!";
+    const lossMessage = "You lose :( " + computerSelection + " beats " + playerSelection + "!";
+    const drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " are obviously the same!";
     console.log("You chose: " + playerSelection);
     console.log("The computer picked: " + computerSelection);
     // define two choices, one for computer and one for player
@@ -50,8 +50,16 @@ function rockPaperScissorsSingleRound() {
         }
 
     }
+    return playerSelection + " is not included as an option in this game yet. Please submit a ticket and we might consider adding " + playerSelection + " as an option at a later date"
     // define victory conditions eg paper beats rock
     // print win or lose message
         // include value of selections for clarity
         // include draw eventuality
+}
+
+function game() {
+    //create a loop that plays 5 single games
+    // store wins in two variables, one for computer and one for player
+    // compare the two variables and declare the largest winner and return results
+        // add draw option
 }
