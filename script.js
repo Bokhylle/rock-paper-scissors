@@ -24,33 +24,43 @@ function rockPaperScissorsSingleRound() {
     // define two choices, one for computer and one for player
     if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
-            return victoryMessage
+            alert(victoryMessage);
+            return "win"
         } else if (computerSelection == "rock") {
-            return drawMessage
+            alert(drawMessage);
+            return "draw"
         } else if (computerSelection == "paper") {
-            return lossMessage
+            alert(lossMessage)
+            return "loss"
         }
 
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            return victoryMessage
+            alert(victoryMessage);
+            return "win"
         } else if (computerSelection == "paper") {
-            return drawMessage
+            alert(drawMessage);
+            return "draw"
         } else if (computerSelection == "scissors") {
-            return lossMessage
+            alert(lossMessage)
+            return "loss"
         }
 
     } else if (playerSelection == "scissors") {
         if (computerSelection == "paper") {
-            return victoryMessage
+            alert(victoryMessage);
+            return "win"
         } else if (computerSelection == "scissors") {
-            return drawMessage
+            ;alert(drawMessage);
+            return "draw"
         } else if (computerSelection == "rock") {
-            return lossMessage
+            alert(lossMessage)
+            return "loss"
         }
 
     }
-    return playerSelection + " is not included as an option in this game yet. Please submit a ticket and we might consider adding " + playerSelection + " as an option at a later date"
+    alert(playerSelection + " is not included as an option in this game yet. Please submit a ticket and we might consider adding " + playerSelection + " as an option at a later date.. Unfortunately this will count as a loss as you did not understand the game. Please try again and enter rock paper or scissors this time ;)")
+    return "loss" 
     // define victory conditions eg paper beats rock
     // print win or lose message
         // include value of selections for clarity
@@ -58,6 +68,18 @@ function rockPaperScissorsSingleRound() {
 }
 
 function game() {
+let playerWin = 0;
+let computerWin = 0;
+    for (i = 1; i <= 5; i++) {
+        let roundResult = rockPaperScissorsSingleRound();
+        if (roundResult == "loss") {
+            computerWin++
+            console.log(computerWin)
+        } else if (roundResult == "win") {
+            playerWin++
+            console.log(playerWin)
+        }
+    }
     //create a loop that plays 5 single games
     // store wins in two variables, one for computer and one for player
     // compare the two variables and declare the largest winner and return results
