@@ -11,15 +11,14 @@ function computerPlay() {
     //pick one by random and return the result
 }
 function playerSelection(selection) {
-    choice = `${selection}`
-    return choice
+    return selection
 }
-function rockPaperScissorsSingleRound(choice) {
-    let playerSelection =  playerSelection(choice).toLowerCase();
+function rockPaperScissorsSingleRound() {
+    let playerSelection =  prompt("Make your pick! (rock paper scissors)").toLowerCase();
     let computerSelection = computerPlay().toLowerCase();
     let victoryMessage = "You win! " + playerSelection + " beats " + computerSelection + "!";
     let lossMessage = "You lose :( " + computerSelection + " beats " + playerSelection + "!";
-    let drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " is obviously the same!";
+    let drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " are obviously the same!";
     console.log("You chose: " + playerSelection);
     console.log("The computer picked: " + computerSelection);
     // define two choices, one for computer and one for player
