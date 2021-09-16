@@ -70,6 +70,9 @@ function rockPaperScissorsSingleRound() {
 function game() {
 let playerWin = 0;
 let computerWin = 0;
+let winMessage = "Congratulations! You have won this 5 round battle " + playerWin + " to " + computerWin + "! sick"
+let lossMessage = "I regret to inform you that you have lost this 5 round battle " + computerWin + " to " + playerWin + ".. Better luck next time!"
+let drawMessage = "Wow, you and the computer drew at " + playerWin + "! What are the odds? -\\(o_O)/-"
     for (i = 1; i <= 5; i++) {
         let roundResult = rockPaperScissorsSingleRound();
         if (roundResult == "loss") {
@@ -80,6 +83,15 @@ let computerWin = 0;
             console.log(playerWin)
         }
     }
+    if (playerWin > computerWin) {
+        alert(winMessage)
+        return "win"
+    } else if (playerWin < computerWin) {
+        alert(lossMessage)
+        return "loss"
+    }
+    alert(drawMessage);
+    return "draw"
     //create a loop that plays 5 single games
     // store wins in two variables, one for computer and one for player
     // compare the two variables and declare the largest winner and return results
