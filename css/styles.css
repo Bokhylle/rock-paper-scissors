@@ -304,6 +304,7 @@ width: 300px;
 p.info-text , p.info-text h1{
     font-size: 14px;
     line-height: 20px;
+    padding: 10px;
 }
 .info-text.help {
     font-size: 12px;
@@ -317,7 +318,7 @@ div.button.exit, div.button{
     font-size: 10px;
 
 }
-div.button {
+div.button.replay {
     max-height: 35px;
 }
 }

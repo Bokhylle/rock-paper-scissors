@@ -67,7 +67,7 @@ function gameEnd(result) {
     infoBox.classList.add('info-box');
     infoText.classList.add('info-text');
     infoText.innerHTML = finalMessage;
-    replayBtn.classList.add('button');
+    replayBtn.classList.add('button', 'replay');
     replayBtn.innerText = 'Play Again?'
     html.appendChild(infoBox);
     infoBox.appendChild(infoText);
@@ -151,6 +151,7 @@ function resetGame() {
     computerScore.innerText = computerScoreCount;
     infoBox.classList.remove('info-box');
     infoText.classList.remove('info-text');
+    replayBtn.classList.remove('button', 'replay');
     html.removeChild(backgroundShadow);
     html.removeChild(infoBox);
     infoBox.removeChild(replayBtn)
@@ -162,6 +163,7 @@ function exitBox() {
     infoBox.removeChild(exitBtn)
     infoBox.classList.remove('info-box');
     infoText.classList.remove('info-text', 'help');
+    exitBtn.classList.remove('button', 'exit');
 }
 
 function rockPaperScissorsSingleRound() {
