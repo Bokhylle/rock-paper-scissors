@@ -271,6 +271,9 @@ footer img {
     padding: 8px;
     margin: 0 10px 0 10px;
 }
+.buttonz img {
+    object-fit: scale-down;
+}
 .score {
 font-size: 80px;
 position: relative;
