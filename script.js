@@ -1,4 +1,21 @@
 console.log("hi")
+const helpBtn = document.querySelector(".help");
+const scissorsBtn = document.querySelector(".scissors");
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const playerScore = document.querySelector(".player");
+const computerScore = document.querySelector(".computer");
+const gameInfo = document.querySelector(".game-info");
+
+//Created elements
+const infoBox = document.createElement('div');
+const backgroundShadow = document.createElement('div');
+const infoText = document.createElement('p')
+// animation
+const playerHand = document.createElement('img');
+const computerHand = document.createElement('img');
+const playerHandResult = document.createElement('img');
+const computerHandResult = document.createElement('img');
 function computerPlay() {
     let randomChoiceNo = Math.floor(Math.random()*3) + 1
     //create three outcomes rock paper and scissors
