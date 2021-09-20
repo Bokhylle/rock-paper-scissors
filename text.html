@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">
+        <p class="admitted">1</p>
+        <p class="refused">2</p>
+        
+    </div>
+    <script>
+const people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+const blackList = ['Phil', 'Lola']
+/*
+const admitted = document.querySelector('.admitted');
+const refused = document.querySelector('.refused');
+admitted.textContent = 'Admit: ';
+refused.textContent = 'Refuse: '
+*/
+
+
+// refused.textContent += ;
+// admitted.textContent += ;
+function checkGuestList(list = people, blacklist = blackList) {
+    let i = 0;
+    const admitted = document.querySelector('.admitted');
+    const refused = document.querySelector('.refused');
+    admitted.textContent = 'Admit: ';
+    refused.textContent = 'Refuse: ';
+        while(i < list.length) {
+            if (blacklist.includes(list[i])) {
+                refused.textContent += list[i] + ', ';
+                i++;
+                continue
+            };
+            admitted.textContent += list[i] + ', ';
+            i++;
+        };
+        admitted.textContent = admitted.textContent.slice(0, (admitted.textContent.length - 2)) + '.';
+        refused.textContent = refused.textContent.slice(0, (refused.textContent.length - 2)) + '.';
+    };
+// loop that cycles through the length of an array
+// check if the value is on the blacklist array
+// add result to appropriate paragraph including comma after each entry
+//  last entry should end with a period
+
+    </script>
+</body>
+</html>
