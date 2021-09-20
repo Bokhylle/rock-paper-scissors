@@ -1,8 +1,13 @@
 :root {
     --header-footer: rgb(110, 23, 23);
 }
+@font-face {
+    font-family: permanent-marker;
+    src: url(/font/PermanentMarker-Regular.ttf);
+}
 * {
     box-sizing: border-box;
+    font-family: permanent-marker;
 }
 .button.paper, .button.scissors, .button.rock {
     height: 150px;
@@ -45,10 +50,12 @@ header img {
 .main-container {
     height: 100vh;
     justify-content: center;
+    font-size: 70px;
 }
 .game-container {
     height:50vh;
     justify-content: space-evenly;
+    font-size: 18px;
 }
 .score-container {
     height: 300px;
@@ -78,7 +85,7 @@ header img {
     justify-content: space-between;
     align-items: center;
     padding: 0 10px 0 10px;
-
+    font-size: 34px;
 }
 .header .icon {
     height: 4vh;
@@ -87,4 +94,18 @@ header img {
 .footer {
     bottom: 0;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+footer * {
+    margin: auto 0 auto 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    font-size: 18px;
+    text-align: center;
+}
+footer img {
+    height: 3vh;
 }
