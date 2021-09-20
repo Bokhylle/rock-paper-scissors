@@ -39,6 +39,7 @@ body {
     ;
     margin: 0 0 0 0;
     height: 100vh;
+    overflow-x: hidden;
 }
 header img {
     height: 4vh;
@@ -263,8 +264,8 @@ footer img {
     top: 50px
 }
 .button.paper, .button.scissors, .button.rock {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     padding: 8px;
     margin: 0 10px 0 10px;
 }
