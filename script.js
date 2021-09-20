@@ -51,7 +51,7 @@ function computerPlay() {
     } else if (randomChoiceNo === 2) {
         return "Paper" 
      } else 
-        return "Scissors"
+        return "Pistol"
     //pick one by random and return the result
 }
 function playerSelection(selection) {
@@ -99,6 +99,10 @@ function gameAnimation() {
 function playHand() {
     animationBox.removeChild(playerHand);
     animationBox.removeChild(computerHand);
+    playerHandResult.classList.add('playerhand')
+    computerHandResult.classList.add('computerhand')
+    animationBox.appendChild(playerHandResult)
+    animationBox.appendChild(computerHandResult)
 }
 function resetGame() {
     playerScoreCount = 0;
@@ -124,7 +128,7 @@ function rockPaperScissorsSingleRound() {
     console.log("The computer picked: " + computerSelection);
     // define two choices, one for computer and one for player
     if (playerSelection == "rock") {
-        if (computerSelection == "scissors") {
+        if (computerSelection == "pistol") {
             alert(victoryMessage);
             console.log(victoryMessage);
             return "win"
@@ -147,18 +151,18 @@ function rockPaperScissorsSingleRound() {
             alert(drawMessage);
             console.log(drawMessage);
             return "draw"
-        } else if (computerSelection == "scissors") {
+        } else if (computerSelection == "pistol") {
             alert(lossMessage);
             console.log(lossMessage);
             return "loss"
         }
 
-    } else if (playerSelection == "scissors") {
+    } else if (playerSelection == "pistol") {
         if (computerSelection == "paper") {
             alert(victoryMessage);
             console.log(victoryMessage);
             return "win"
-        } else if (computerSelection == "scissors") {
+        } else if (computerSelection == "pistol") {
             ;alert(drawMessage);
             console.log(drawMessage);
             return "draw"
@@ -180,7 +184,7 @@ function rockPaperScissorsSingleRoundMouseClick() {
         console.log("The computer picked: " + computerSelection);
         // define two choices, one for computer and one for player
         if (playerSelection == "rock") {
-            if (computerSelection == "scissors") {
+            if (computerSelection == "pistol") {
                 console.log(victoryMessage);
                 gameInfo.innerText = victoryMessage;
                 return win();
@@ -203,19 +207,19 @@ function rockPaperScissorsSingleRoundMouseClick() {
                 console.log(drawMessage);
                 gameInfo.innerText = drawMessage;
                 return "draw"
-            } else if (computerSelection == "scissors") {
+            } else if (computerSelection == "pistol") {
                 console.log(lossMessage);
                 gameInfo.innerText = lossMessage;
                 return loss();
             }
     
-        } else if (playerSelection == "scissors") {
+        } else if (playerSelection == "pistol") {
             if (computerSelection == "paper") {
 
                 console.log(victoryMessage);
                 gameInfo.innerText = victoryMessage;
                 return win();
-            } else if (computerSelection == "scissors") {
+            } else if (computerSelection == "pistol") {
 
                 console.log(drawMessage);
                 gameInfo.innerText = drawMessage;
