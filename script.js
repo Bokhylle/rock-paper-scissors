@@ -5,6 +5,7 @@ let victoryMessage;
 let drawMessage;
 let lossMessage;
 
+const html = document.querySelector('html');
 const helpBtn = document.querySelector(".help");
 const scissorsBtn = document.querySelector(".scissors");
 const rockBtn = document.querySelector(".rock");
@@ -13,11 +14,13 @@ const playerScore = document.querySelector(".player");
 const computerScore = document.querySelector(".computer");
 const gameInfo = document.querySelector(".game-info");
 const playerChoiceButtons = document.querySelectorAll(".button");
-
+const animationBox = document.querySelector('.animation-container');
 //Created elements
 const infoBox = document.createElement('div');
 const backgroundShadow = document.createElement('div');
 const infoText = document.createElement('p')
+const replayBtn = document.createElement('div');
+const exitBtn = document.createElement('div');
 // animation
 const playerHand = document.createElement('img');
 const computerHand = document.createElement('img');
@@ -29,14 +32,14 @@ computerScore.innerText = computerScoreCount;
 function win() {
     ++playerScoreCount
     if (playerScoreCount > 4) {
-       return winMessage()
+       return gameEnd("win");
     }
     return playerScore.innerText = playerScoreCount;
 }
 function loss() {
     ++computerScoreCount
     if (computerScoreCount > 4) {
-       return lossMessage()
+       return gameEnd("loss");
     }
     return computerScore.innerText = computerScoreCount;
 }
@@ -54,6 +57,63 @@ function computerPlay() {
 function playerSelection(selection) {
     return selection
 }
+function gameEnd(result) {
+    if (result == 'win') {
+        finalMessage = `<h1>You Win!</h1><br>Amazing, you just won ${playerScoreCount} to ${computerScoreCount}`
+    }
+    if (result == 'loss') {
+        finalMessage = `<h1>You Lose :(</h1><br>Aww shucks, you just lost ${playerScoreCount} to ${computerScoreCount}`
+    }
+    backgroundShadow.classList.add('background-shadow');
+    infoBox.classList.add('info-box');
+    infoText.classList.add('info-text');
+    infoText.innerHTML = finalMessage;
+    replayBtn.classList.add('button');
+    replayBtn.innerText = 'Play Again?'
+    html.appendChild(infoBox);
+    infoBox.appendChild(infoText);
+    infoBox.appendChild(replayBtn)
+    html.appendChild(backgroundShadow);
+}
+function helpBox() {
+    backgroundShadow.classList.add('background-shadow');
+    infoBox.classList.add('info-box');
+    infoText.classList.add('info-text', 'help');
+    infoText.innerHTML = '<h1>Welcome to Rock Piston Paper</h1><br>Playing is simple! Just choose your move with the buttons on the bottom of the screen. Your result will display on the screen and you can monitor your score with the central counter.<br>First to 5 wins is the victor.. Good Luck!';
+    exitBtn.classList.add('button', 'exit');
+    exitBtn.innerText = 'click to return'
+    html.appendChild(infoBox);
+    infoBox.appendChild(infoText);
+    infoBox.appendChild(exitBtn)
+    html.appendChild(backgroundShadow);
+}
+playerHand.addEventListener('animationend', () => {alert('hi')});
+function gameAnimation() {
+    playerHand.classList.add('playerhand', 'animation-hand')
+    computerHand.classList.add('computerhand', 'animation-hand')
+    playerHand.setAttribute('src', './img/noun_Hand_edit rock.png')
+    computerHand.setAttribute('src', './img/noun_Hand_edit rock.png')
+    animationBox.appendChild(playerHand);
+    animationBox.appendChild(computerHand);
+}
+function playHand() {
+    animationBox.removeChild(playerHand);
+    animationBox.removeChild(computerHand);
+}
+function resetGame() {
+    playerScoreCount = 0;
+    computerScoreCount = 0;
+    playerScore.innerText = playerScoreCount;
+    computerScore.innerText = computerScoreCount;
+    html.removeChild(backgroundShadow);
+    html.removeChild(infoBox);
+    gameInfo.innerText = 'Make your pick!'
+}
+function exitBox() {
+    html.removeChild(backgroundShadow);
+    html.removeChild(infoBox);
+}
+
 function rockPaperScissorsSingleRound() {
     const playerSelection =  prompt("Make your pick! (rock paper scissors)").toLowerCase();
     const computerSelection = computerPlay().toLowerCase();
@@ -218,11 +278,13 @@ playerChoiceButtons.forEach(button => button.addEventListener('transitionend', r
 function clicker() {
     this.classList.add("clicked");
 }
-
+helpBtn.onclick = helpBox;
+exitBtn.onclick = exitBox
+replayBtn.onclick = resetGame;
 paperBtn.onclick = clicker;
 scissorsBtn.onclick = clicker;
 rockBtn.onclick = clicker;
-playerChoiceButtons.forEach(button => button.addEventListener('click', rockPaperScissorsSingleRoundMouseClick));
+playerChoiceButtons.forEach(buttonz => buttonz.addEventListener('click', rockPaperScissorsSingleRoundMouseClick));
 /*
 playerChoiceButtons.forEach(button => button.addEventListener('click', function() {
     console.log(ape);
