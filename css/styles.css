@@ -16,6 +16,7 @@
     100% {margin-bottom: 0px;
         animation-timing-function: ease-in;}
 }
+
 * {
     box-sizing: border-box;
     font-family: press-start;
@@ -91,7 +92,7 @@ header img {
     max-width: 550px;
     min-width: 400px;
     border-color: black;
-    border-style: solid;
+
     border-width: 2px;
     border-radius: 10px;
     justify-content: space-between;
@@ -242,4 +243,78 @@ footer * {
 }
 footer img {
     height: 3vh;
+}
+@media only screen and (max-width: 720px) {
+.header, .footer {
+    height: 8vh;
+    font-size: 16px;
+}
+.animation-container {
+    max-width: 400px;
+    min-width: 250px;
+    max-height: 100px;
+    margin: 0;
+    gap: 0;
+    padding: 0;
+}
+.animation-container img {
+    max-height: 80%;
+    position: relative;
+    top: 50px
+}
+.button.paper, .button.scissors, .button.rock {
+    height: 80px;
+    width: 80px;
+    padding: 8px;
+    margin: 0 10px 0 10px;
+}
+.score {
+font-size: 80px;
+position: relative;
+bottom: 40px;
+
+}
+div.score-container {
+    margin: 0 0 0 0;
+bottom: 0;
+padding: 0;
+gap: 20px;
+width: 300px;
+}
+.title-text {
+    font-size: 26px;
+    line-height: 40px;
+}
+.game-info {
+    font-size: 12px;
+    padding: 0 16px 0 16px;
+    min-height: 50px;
+}
+ .footer div {
+    font-size: 10px;
+}
+.info-box {
+    height: 50%;
+    margin: 0 auto 0 auto;
+    top: 20%;
+}
+p.info-text , p.info-text h1{
+    font-size: 14px;
+    line-height: 20px;
+}
+.info-text.help {
+    font-size: 12px;
+    line-height: 12px;
+}
+.info-text.help h1 {
+    font-size: 12px;
+    line-height: 14px;
+}
+div.button.exit, div.button{
+    font-size: 10px;
+
+}
+div.button.exit {
+    max-height: 35px;
+}
 }

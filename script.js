@@ -149,6 +149,8 @@ function resetGame() {
     computerScoreCount = 0;
     playerScore.innerText = playerScoreCount;
     computerScore.innerText = computerScoreCount;
+    infoBox.classList.remove('info-box');
+    infoText.classList.remove('info-text');
     html.removeChild(backgroundShadow);
     html.removeChild(infoBox);
     infoBox.removeChild(replayBtn)
@@ -157,6 +159,9 @@ function resetGame() {
 function exitBox() {
     html.removeChild(backgroundShadow);
     html.removeChild(infoBox);
+    infoBox.removeChild(exitBtn)
+    infoBox.classList.remove('info-box');
+    infoText.classList.remove('info-text', 'help');
 }
 
 function rockPaperScissorsSingleRound() {
