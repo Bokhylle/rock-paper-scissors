@@ -33,14 +33,14 @@ playerScore.innerText = playerScoreCount;
 computerScore.innerText = computerScoreCount;
 function win() {
     ++playerScoreCount
-    if (playerScoreCount > 4) {
+    if (playerScoreCount > 2) {
        return gameEnd("win");
     }
     return playerScore.innerText = playerScoreCount;
 }
 function loss() {
     ++computerScoreCount
-    if (computerScoreCount > 4) {
+    if (computerScoreCount > 2) {
        return gameEnd("loss");
     }
     return computerScore.innerText = computerScoreCount;

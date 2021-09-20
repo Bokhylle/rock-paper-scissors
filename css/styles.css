@@ -252,6 +252,7 @@ footer img {
     font-size: 16px;
 }
 .animation-container {
+    justify-content: space-evenly;
     max-width: 400px;
     min-width: 250px;
     max-height: 100px;
@@ -316,7 +317,7 @@ div.button.exit, div.button{
     font-size: 10px;
 
 }
-div.button.exit {
+div.button {
     max-height: 35px;
 }
 }
