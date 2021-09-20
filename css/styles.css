@@ -1,5 +1,5 @@
 :root {
-    --header-footer: rgb(110, 23, 23);
+    --header-footer: #eceaf5;
 }
 @font-face {
     font-family: permanent-marker;
@@ -20,10 +20,11 @@
     margin: 0 20px 0 20px;
 }
 html {
-    color: white;
+    color: #7b81a7;
 }
 body {
-    background-color: royalblue;
+    background-color: #e9f3c0;
+    ;
     margin: 0;
     height: 100vh;
 }
@@ -42,6 +43,7 @@ header img {
     margin: auto;
     left: 0;
     right: 0;
+    z-index: -1;
 }
 .main-container, .game-container{
     flex-direction: column;
@@ -63,8 +65,17 @@ header img {
     justify-content: space-evenly;
     gap: 40px;
 }
+.animation-container {
+    height: 200px;
+    width: 50vw;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+}
 .button-container {
     justify-content: space-between;
+    opacity: 70%;
 }
 .score {
     height: auto;
