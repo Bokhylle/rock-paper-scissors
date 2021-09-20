@@ -4,6 +4,8 @@ let computerScoreCount = 0
 let victoryMessage;
 let drawMessage;
 let lossMessage;
+let playerSelection;
+let computerSelection;
 
 const html = document.querySelector('html');
 const helpBtn = document.querySelector(".help");
@@ -54,9 +56,6 @@ function computerPlay() {
         return "Pistol"
     //pick one by random and return the result
 }
-function playerSelection(selection) {
-    return selection
-}
 function gameEnd(result) {
     if (result == 'win') {
         finalMessage = `<h1>You Win!</h1><br>Amazing, you just won ${playerScoreCount} to ${computerScoreCount}`
@@ -79,7 +78,7 @@ function helpBox() {
     backgroundShadow.classList.add('background-shadow');
     infoBox.classList.add('info-box');
     infoText.classList.add('info-text', 'help');
-    infoText.innerHTML = '<h1>Welcome to Rock Piston Paper</h1><br>Playing is simple! Just choose your move with the buttons on the bottom of the screen. Your result will display on the screen and you can monitor your score with the central counter.<br>First to 5 wins is the victor.. Good Luck!';
+    infoText.innerHTML = '<h1>Welcome to Rock Pistol Paper</h1><br>Playing is simple! Just choose your move with the buttons on the bottom of the screen. Your result will display on the screen and you can monitor your score with the central counter.<br>First to 5 wins is the victor.. Good Luck!';
     exitBtn.classList.add('button', 'exit');
     exitBtn.innerText = 'click to return'
     html.appendChild(infoBox);
@@ -87,14 +86,55 @@ function helpBox() {
     infoBox.appendChild(exitBtn)
     html.appendChild(backgroundShadow);
 }
-playerHand.addEventListener('animationend', () => {alert('hi')});
+function unClickTest() {
+    playerChoiceButtons.forEach(buttonz => buttonz.removeEventListener('click', animationRound));
+}
+function restoreClickTest() {
+    playerChoiceButtons.forEach(buttonz => buttonz.addEventListener('click', animationRound));
+}
+playerHand.addEventListener('animationend', () => {
+    playHand();
+    restoreClickTest();
+    rockPaperScissorsSingleRoundMouseClick();
+});
 function gameAnimation() {
+    if (animationBox.contains(playerHandResult)) {
+        animationBox.removeChild(playerHandResult);
+        animationBox.removeChild(computerHandResult);
+    }
     playerHand.classList.add('playerhand', 'animation-hand')
     computerHand.classList.add('computerhand', 'animation-hand')
     playerHand.setAttribute('src', './img/noun_Hand_edit rock.png')
     computerHand.setAttribute('src', './img/noun_Hand_edit rock.png')
     animationBox.appendChild(playerHand);
     animationBox.appendChild(computerHand);
+}
+function animationRound() {
+    playerSelection = this.getAttribute('id')
+    computerSelection = computerPlay().toLowerCase();
+    victoryMessage = "You win! " + playerSelection + " beats " + computerSelection + "!";
+    lossMessage = "You lose :( " + computerSelection + " beats " + playerSelection + "!";
+    drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " are obviously the same!";
+    if (playerSelection == 'pistol') {
+        playerHandResult.setAttribute('src', './img/noun_Hand_pistol.png')
+    }
+    if (playerSelection == 'rock') {
+        playerHandResult.setAttribute('src', './img/noun_Hand_edit rock.png')
+    }
+    if (playerSelection == 'paper') {
+        playerHandResult.setAttribute('src', './img/noun_Hand_paper.png')
+    }
+    if (computerSelection == 'pistol') {
+        computerHandResult.setAttribute('src', './img/noun_Hand_pistol.png')
+    }
+    if (computerSelection == 'rock') {
+        computerHandResult.setAttribute('src', './img/noun_Hand_edit rock.png')
+    }
+    if (computerSelection == 'paper') {
+        computerHandResult.setAttribute('src', './img/noun_Hand_paper.png')
+    }
+    gameAnimation();
+    unClickTest();
 }
 function playHand() {
     animationBox.removeChild(playerHand);
@@ -111,6 +151,7 @@ function resetGame() {
     computerScore.innerText = computerScoreCount;
     html.removeChild(backgroundShadow);
     html.removeChild(infoBox);
+    infoBox.removeChild(replayBtn)
     gameInfo.innerText = 'Make your pick!'
 }
 function exitBox() {
@@ -175,14 +216,6 @@ function rockPaperScissorsSingleRound() {
 }
 
 function rockPaperScissorsSingleRoundMouseClick() {
-        const playerSelection = this.getAttribute('id')
-        const computerSelection = computerPlay().toLowerCase();
-              victoryMessage = "You win! " + playerSelection + " beats " + computerSelection + "!";
-              lossMessage = "You lose :( " + computerSelection + " beats " + playerSelection + "!";
-              drawMessage = "It's a draw! " + playerSelection + " and " + computerSelection + " are obviously the same!";
-        console.log("You chose: " + playerSelection);
-        console.log("The computer picked: " + computerSelection);
-        // define two choices, one for computer and one for player
         if (playerSelection == "rock") {
             if (computerSelection == "pistol") {
                 console.log(victoryMessage);
@@ -288,7 +321,7 @@ replayBtn.onclick = resetGame;
 paperBtn.onclick = clicker;
 scissorsBtn.onclick = clicker;
 rockBtn.onclick = clicker;
-playerChoiceButtons.forEach(buttonz => buttonz.addEventListener('click', rockPaperScissorsSingleRoundMouseClick));
+playerChoiceButtons.forEach(buttonz => buttonz.addEventListener('click', animationRound));
 /*
 playerChoiceButtons.forEach(button => button.addEventListener('click', function() {
     console.log(ape);
